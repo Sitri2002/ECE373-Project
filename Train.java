@@ -13,8 +13,8 @@ public class Train {
 	
 	public Train() {
 		trainCode = 0;
-		seatTiers = new int[3];
 		status = "in the station";
+		seatTiers = new int[3];
 		routeList = new ArrayList<Route>();
 		schedule = new ArrayList<Integer>();
 		passengerList = new ArrayList<Passenger>();

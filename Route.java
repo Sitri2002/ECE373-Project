@@ -68,10 +68,15 @@ public class Route {
 		this.passengerList = passengerList;
 	}
 	
-	public int getDuration() {
-		int duration = 0;
+	public double getDuration() {
+		double duration = 0;
 		
 		// convert to military time somehow to calculate time in between trains ? 
+		duration = (arrivalTime - departureTime);
+		// ex: depart time = 1600, arrival time = 1800
+		// duration would be 200 or 2 hours
+		
+		System.out.println("The duration of this route is " + (duration/100) + " hours");
 		
 		return duration;
 	}

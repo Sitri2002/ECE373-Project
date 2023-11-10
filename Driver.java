@@ -38,7 +38,7 @@ public class Driver {
 		p1.setUsername(passenger1_username);
 		p1.setEmail(passenger1_email);
 		
-		p1.bookTrain(t1);
+		p1.bookTrain(t1, t1.getRouteList().get(0));
 		
 		System.out.println("Printing the booking details for p1:");
 		
@@ -56,7 +56,7 @@ public class Driver {
 		p2.setUsername(passenger2_username);
 		p2.setEmail(passenger2_email);
 		
-		p2.bookTrain(t1);
+		p2.bookTrain(t1, t1.getRouteList().get(0));
 		
 		System.out.println("Printing passengers:");
 		t1.printPassengers();
@@ -68,6 +68,9 @@ public class Driver {
 		
 		System.out.println("Printing passengers after p1 cancelled:");
 		t1.printPassengers();
+		
+		System.out.println("Printing the duration for the t1 route: ");
+		t1.getRouteList().get(0).getDuration();
 		
 	}
 }

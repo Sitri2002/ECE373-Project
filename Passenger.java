@@ -1,58 +1,41 @@
 package TrainResverationSystem;
 
-public class Passenger {
-
-	private String name;
-	private String password;
-	private String username;
-	private String email;
-	private int bookedTrainCode;
+public class Passenger extends Person {
+	private Train bookedTrain;
+//	private int bookedTrainCode;		changed to train because its too hard to work with only train code and route.. unless you guys have a better way to implement
 	private Route bookedRoute;
 	private int seatTier;
 	
 	public Passenger() {
-		name = null;
-		password = null;
-		username = null;
-		email = null;
-		
-		bookedTrainCode = 0;
-		bookedRoute = new Route();
+	//	setBookedTrainCode(0);
+		setBookedRoute(new Route());
 		seatTier = 0;
 	}
 	
-	public void setName(String s) {
-		name = s;
+/*	public int getBookedTrainCode() {
+		return bookedTrainCode;
 	}
-	
-	public String getName() {
-		return name;
+
+	public void setBookedTrainCode(int bookedTrainCode) {
+		this.bookedTrainCode = bookedTrainCode;
+	} */
+
+	public Route getBookedRoute() {
+		return bookedRoute;
 	}
-	
-	public void setUsername(String name) {
-		username = name;
+
+	public void setBookedRoute(Route bookedRoute) {
+		this.bookedRoute = bookedRoute;
 	}
-	
-	public String getUsername() {
-		return username;
+
+	public Train getbookedTrain() {
+		return bookedTrain;
 	}
-	
-	public void setPassword(String pswd) {
-		password = pswd;
+
+	public void setbookedTrain(Train train) {
+		this.bookedTrain = train;
 	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setEmail(String e) {
-		email = e;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
+
 	public void viewTrains() {
 		
 	}
@@ -61,29 +44,34 @@ public class Passenger {
 		
 	}
 	
-	public void bookTrain(Train train) {
+	public void bookTrain(Train train, Route route) {
 		train.addPassenger(this);
+		this.setbookedTrain(train);
 		
-		bookedTrainCode = train.getTrainCode();
-		bookedRoute = train.getRouteList().get(0); // change routelist to be only one route?
-		seatTier = 0;
+		for(Route r : train.getRouteList()) {
+			if(train.getRouteList().contains(route)) {
+				if(r == route) {
+					setBookedRoute(r); // change routelist to be only one route? : UPDATED... maybe - it is kind of hard to iterate trhough and match routes
+				}
+		 }
+		}
 	}
 	
 	public void viewBooking() {
-		// print the current train? (only one train booking possible currently)
-		if (bookedTrainCode != 0) {
-			System.out.println(bookedTrainCode);
-			System.out.println(bookedRoute.getStartLocation() + " -> " + bookedRoute.getEndLocation());
+		if (bookedTrain != null) {
+			System.out.println("Your upcoming booked train number" + bookedTrain.getTrainCode() + " is currently " + bookedTrain.getStatus());// add train status
+			System.out.println("Your route is ");
+			System.out.println("Departing from: " + bookedRoute.getStartLocation() + " at " + bookedRoute.getDepatureTime());
+			System.out.println("Arriving at: " + bookedRoute.getEndLocation() + " at " + bookedRoute.getArrivalTime());
 		} else {
-			System.out.println("No train booked");
+			System.out.println("There is no train booked currently");
 		}
 	}
 	
 	public void cancelBooking(Train train) {
-		bookedTrainCode = 0;
-		bookedRoute = null;
-		seatTier = 0;
 		train.removePassenger(this);
+		
+		bookedTrain = null;
 	}
 	
 	public void changeSeatTier(int new_tier) {
