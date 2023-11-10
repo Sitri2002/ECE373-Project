@@ -71,6 +71,8 @@ public class Route {
 	public int getDuration() {
 		int duration = 0;
 		
+		// convert to military time somehow to calculate time in between trains ? 
+		
 		return duration;
 	}
 

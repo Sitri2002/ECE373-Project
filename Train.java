@@ -6,6 +6,7 @@ public class Train {
 
 	private int trainCode;
 	private int[] seatTiers;
+	private String status;
 	private ArrayList<Route> routeList;
 	private ArrayList<Integer> schedule;
 	private ArrayList<Passenger> passengerList;
@@ -13,6 +14,7 @@ public class Train {
 	public Train() {
 		trainCode = 0;
 		seatTiers = new int[3];
+		status = "in the station";
 		routeList = new ArrayList<Route>();
 		schedule = new ArrayList<Integer>();
 		passengerList = new ArrayList<Passenger>();
@@ -38,6 +40,14 @@ public class Train {
 		seatTiers = seat;
 	}
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public ArrayList<Route> getRouteList(){
 		return routeList;
 	}

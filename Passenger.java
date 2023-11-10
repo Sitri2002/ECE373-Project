@@ -69,8 +69,14 @@ public class Passenger {
 		seatTier = 0;
 	}
 	
-	public void viewBookings() {
+	public void viewBooking() {
 		// print the current train? (only one train booking possible currently)
+		if (bookedTrainCode != 0) {
+			System.out.println(bookedTrainCode);
+			System.out.println(bookedRoute.getStartLocation() + " -> " + bookedRoute.getEndLocation());
+		} else {
+			System.out.println("No train booked");
+		}
 	}
 	
 	public void cancelBooking(Train train) {
