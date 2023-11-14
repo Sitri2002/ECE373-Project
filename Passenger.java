@@ -7,7 +7,6 @@ public class Passenger {
 	private String username;
 	private String email;
 	private Train bookedTrain;
-//	private int bookedTrainCode;		changed to train because its too hard to work with only train code and route.. unless you guys have a better way to implement
 	private Route bookedRoute;
 	private int seatTier;
 	
@@ -17,8 +16,8 @@ public class Passenger {
 		username = null;
 		email = null;
 		
-	//	setBookedTrainCode(0);
-		setBookedRoute(new Route());
+		bookedTrain = new Train();
+		bookedRoute = new Route();
 		seatTier = 0;
 	}
 	
@@ -79,11 +78,26 @@ public class Passenger {
 	}
 
 	public void viewTrains() {
+		if(bookedTrain != null) {
+			System.out.println("Train " + bookedTrain.getTrainCode() + " is currently " + bookedTrain.getStatus());
+			System.out.println("Train routes available: ");
+			System.out.println("Departing from: " + bookedRoute.getStartLocation() + " at " + bookedRoute.getDepartureTime());
+			System.out.println("Arriving at: " + bookedRoute.getEndLocation() + " at " + bookedRoute.getArrivalTime());
+		}
 		
+		else {
+			System.out.println("Train could not be found. Please select a different train to view.");
+		}
 	}
 	
 	public void viewTrainStatus() {
+		if(bookedTrain != null) {
+			System.out.println("Train " + bookedTrain.getTrainCode() + " is currently " + bookedTrain.getStatus());
+		}
 		
+		else {
+			System.out.println("Train could not be found. Please select a different train to view.");
+		}
 	}
 	
 	public void bookTrain(Train train, Route route) {
@@ -102,7 +116,7 @@ public class Passenger {
 	public void viewBooking() {
 		System.out.println("Your upcoming booked train number" + bookedTrain.getTrainCode() + " is currently " + bookedTrain.getStatus());// add train status
 		System.out.println("Your route is ");
-		System.out.println("Departing from: " + bookedRoute.getStartLocation() + " at " + bookedRoute.getDepatureTime());
+		System.out.println("Departing from: " + bookedRoute.getStartLocation() + " at " + bookedRoute.getDepartureTime());
 		System.out.println("Arriving at: " + bookedRoute.getEndLocation() + " at " + bookedRoute.getArrivalTime());
 	}
 	

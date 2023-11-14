@@ -39,6 +39,10 @@ public class Train {
 		seatTiers = seat;
 	}
 	
+	public int[] getSeatTiers() {
+		return seatTiers;
+	}
+	
 	public String getStatus() {
 		return status;
 	}
@@ -80,7 +84,9 @@ public class Train {
 	}
 	
 	public void removePassenger(Passenger p) {
+		if(passengerList.contains(p)) {
 		passengerList.remove(p);
+		}
 	}
 	
 	public void addRoute(Route r) {
@@ -96,7 +102,9 @@ public class Train {
 	}
 	
 	public void removeTimeFromSchedule(int time) {
+		if(schedule.contains(time)) {
 		schedule.remove(time);
+		}
 	}
 	
 }

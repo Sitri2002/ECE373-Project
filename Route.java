@@ -17,7 +17,7 @@ public class Route {
 		departureTime = 0;
 		arrivalTime = 0;
 		price = 0;
-		setPassengerList(new ArrayList<Passenger>());
+		passengerList = new ArrayList<Passenger>();
 	}
 	
 	public void setStartLocation(String location) {
@@ -40,7 +40,7 @@ public class Route {
 		departureTime = time;
 	}
 	
-	public int getDepatureTime() {
+	public int getDepartureTime() {
 		return departureTime;
 	}
 	
@@ -66,6 +66,10 @@ public class Route {
 	
 	public void setPassengerList(ArrayList<Passenger> passengerList) {
 		this.passengerList = passengerList;
+	}
+	
+	public void addPassenger(Passenger passenger) {
+		passengerList.add(passenger);
 	}
 	
 	public int getDuration() {
