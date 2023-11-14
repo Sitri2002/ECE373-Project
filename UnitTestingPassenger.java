@@ -5,16 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class UnitTestingPassenger {
-
-	/* 	name = null;
-		password = null;
-		username = null;
-		email = null;
-		bookedTrain = new Train();
-		setBookedRoute(new Route());
-		seatTier = 0;
-	 */
-	
 	@Test
 	void testPassenger() {
 		Passenger p1 = new Passenger();
@@ -33,22 +23,38 @@ class UnitTestingPassenger {
 
 	@Test
 	void testSetName() {
-		fail("Not yet implemented");
+		Passenger m1 = new Passenger();
+		
+		m1.setName("Jack");
+		
+		assertEquals("Jack", m1.getName());
 	}
 
 	@Test
 	void testSetUsername() {
-		fail("Not yet implemented");
+		Passenger m1 = new Passenger();
+		
+		m1.setUsername("sitri2002");
+		
+		assertEquals("sitri2002", m1.getUsername());
 	}
 
 	@Test
 	void testSetPassword() {
-		fail("Not yet implemented");
+		Passenger m1 = new Passenger();
+		
+		m1.setPassword("Kota!2345");
+		
+		assertEquals("Kota!2345", m1.getPassword());
 	}
 
 	@Test
 	void testSetEmail() {
-		fail("Not yet implemented");
+		Passenger m1 = new Passenger();
+		
+		m1.setEmail("jacknguyen@arizona.edu");
+		
+		assertEquals("jacknguyen@arizona.edu", m1.getEmail());
 	}
 
 	@Test
@@ -72,38 +78,42 @@ class UnitTestingPassenger {
 	}
 
 	@Test
-	void testViewTrains() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testViewTrainStatus() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testBookTrain() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testViewBooking() {
-		fail("Not yet implemented");
+		Train testTrain = new Train();
+		Route testRoute = new Route();
+		Passenger p = new Passenger();
+		
+		testTrain.setTrainCode(333);
+		
+		testRoute.setArrivalTime(1000);
+		testRoute.setDepartureTime(1200);
+		
+		testTrain.addRoute(testRoute);
+		
+		p.bookTrain(testTrain, testRoute);
+		
+		assertEquals(testTrain, p.getbookedTrain());
+		assertEquals(testRoute, p.getBookedRoute());
 	}
 
 	@Test
 	void testCancelBooking() {
-		fail("Not yet implemented");
+		Train testTrain = new Train();
+		Passenger p = new Passenger();
+		
+		p.cancelBooking(testTrain);
+		
+		assertEquals(null, p.getbookedTrain());
 	}
 
 	@Test
 	void testChangeSeatTier() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetSeatTier() {
-		fail("Not yet implemented");
+		Passenger p = new Passenger();
+		int seat = 3;
+		
+		p.changeSeatTier(seat);
+		
+		assertEquals(seat, p.getSeatTier());
 	}
 
 }

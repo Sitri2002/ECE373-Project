@@ -7,12 +7,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 class UnitTestingTrain {
-
-	/* trainCode = 0;
-		seatTiers = new int[3];
-		routeList = new ArrayList<Route>();
-		schedule = new ArrayList<Integer>();
-		passengerList = new ArrayList<Passenger>(); */
 	@Test
 	void testTrain() {
 		Train train = new Train();
@@ -74,22 +68,7 @@ class UnitTestingTrain {
 		
 		assertEquals(stat, train.getStatus());
 	}
-
-	/* @Test
-	void testPrintRouteList() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testPrintSchedule() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testPrintPassengers() {
-		fail("Not yet implemented");
-	} */
-
+	
 	@Test
 	void testAddPassenger() {
 		Train train = new Train();
@@ -172,9 +151,9 @@ class UnitTestingTrain {
 	void testRemoveTimeFromSchedule() {
 		Train train = new Train();
 		ArrayList<Integer> ilist = new ArrayList<Integer>();
-		Integer i1 = 3;
-		Integer i2 = 11;
-		Integer i3 = 33;
+		int i1 = 3;
+		int i2 = 11;
+		int i3 = 33;
 		
 		ilist.add(i1);
 		ilist.add(i2);

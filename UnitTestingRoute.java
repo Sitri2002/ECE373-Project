@@ -7,13 +7,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 class UnitTestingRoute {
-
-	/* startingLocation = null;
-	endLocation = null;
-	departureTime = 0;
-	arrivalTime = 0;
-	price = 0;
-	setPassengerList(new ArrayList<Passenger>()); */
 	@Test
 	void testRoute() {
 		Route r1 = new Route();
@@ -21,15 +14,10 @@ class UnitTestingRoute {
 		
 		// testing all getters
 		assertEquals(null, r1.getStartLocation());
-		
 		assertEquals(null, r1.getEndLocation());
-	
 		assertEquals(0, r1.getDepartureTime());
-		
 		assertEquals(0, r1.getArrivalTime());
-		
 		assertEquals(0, r1.getPrice());
-		
 		assertEquals(passengers, r1.getPassengerList());
 	}
 

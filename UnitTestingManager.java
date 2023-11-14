@@ -13,12 +13,6 @@ class UnitTestingManager {
 		Manager m1 = new Manager();
 		ArrayList<Train> trainsManaged = new ArrayList<Train>();
 		
-		/*	name = null;
-		username = null;
-		password = null;
-		email = null;  
-		trainsManaged = new ArrayList<Train>(); */
-		
 		//testing getName()
 		assertEquals(null, m1.getName());
 		
